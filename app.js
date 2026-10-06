@@ -1,185 +1,4 @@
-<!doctype html>
-<html lang="fa" dir="rtl">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0b1220">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="مدیریت مالی حرفه‌ای">
-<link rel="manifest" href="manifest.json">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="icon-192.png">
-<title>حسابینو | مدیریت مالی حرفه‌ای</title>
-<style>
-:root{--bg:#eef2f7;--card:rgba(255,255,255,.76);--card2:rgba(255,255,255,.58);--text:#172033;--muted:#718096;--line:rgba(148,163,184,.22);--primary:#2563eb;--green:#16a34a;--red:#dc2626;--orange:#ea580c;--purple:#7c3aed;--shadow:0 16px 45px rgba(15,23,42,.09);--radius:22px}
-body.dark{--bg:#08111f;--card:rgba(15,23,42,.72);--card2:rgba(15,23,42,.55);--text:#f1f5f9;--muted:#94a3b8;--line:rgba(148,163,184,.16);--shadow:0 18px 55px rgba(0,0,0,.28)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Tahoma,"Vazirmatn",Arial,sans-serif;background:radial-gradient(circle at 15% 0%,rgba(37,99,235,.12),transparent 32%),var(--bg);color:var(--text);min-height:100vh}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;color:inherit}.app{max-width:1180px;margin:auto;padding:18px 15px 110px}
-header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:15px}.brand{display:flex;align-items:center;gap:11px}.logo{width:48px;height:48px;border-radius:16px;box-shadow:0 10px 25px rgba(37,99,235,.22)}.brand h1{font-size:20px;margin:0 0 4px}.brand p{margin:0;color:var(--muted);font-size:11px}.head-actions{display:flex;gap:7px}.iconbtn{width:42px;height:42px;border-radius:14px;background:var(--card);border:1px solid var(--line);backdrop-filter:blur(18px);box-shadow:var(--shadow);font-size:18px}
-.accountbar{display:flex;gap:8px;margin:10px 0 15px;overflow:auto;padding-bottom:2px}.accountbar button{white-space:nowrap;padding:10px 15px;border-radius:13px;background:var(--card);border:1px solid var(--line);color:var(--muted)}.accountbar button.active{background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;border-color:transparent}
-.hero{border-radius:28px;padding:22px;background:linear-gradient(135deg,#0b1220,#173b82 72%,#2563eb);color:white;box-shadow:0 22px 50px rgba(15,23,42,.2);position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.07);left:-45px;top:-60px}.hero-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;position:relative;z-index:1}.hero small{opacity:.72}.hero h2{font-size:29px;margin:8px 0}.hero .month{background:rgba(255,255,255,.1);padding:9px 12px;border-radius:13px;font-size:12px}.hero-bottom{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px;position:relative;z-index:1}.mini{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.1);border-radius:13px;padding:9px 11px;font-size:11px}.mini b{display:block;font-size:13px;margin-top:3px}
-.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:14px 0}.stat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:var(--shadow);backdrop-filter:blur(18px)}.stat .ico{font-size:20px}.stat b{display:block;font-size:15px;margin:8px 0 3px}.stat span{color:var(--muted);font-size:10px}
-.nav{display:flex;gap:7px;overflow:auto;margin:4px 0 7px;padding-bottom:2px}.nav button{white-space:nowrap;padding:10px 13px;border-radius:13px;background:var(--card);border:1px solid var(--line);color:var(--muted);cursor:pointer}.nav button.active{color:var(--primary);background:rgba(37,99,235,.1);border-color:rgba(37,99,235,.25);font-weight:bold}.more-nav{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 15px;padding:7px;background:var(--soft);border:1px solid var(--line);border-radius:15px}.more-nav.hidden{display:none}.more-nav button{padding:9px 12px;border-radius:11px;background:var(--card);border:1px solid var(--line);color:var(--text);cursor:pointer}.more-nav-btn{margin-right:auto}
-.grid{display:grid;grid-template-columns:1.15fr .85fr;gap:14px}.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:17px;box-shadow:var(--shadow);backdrop-filter:blur(20px);margin-bottom:14px}.panel-title{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:13px}.panel-title h3{margin:0;font-size:16px}.muted{color:var(--muted);font-size:11px}.add,.primary{background:linear-gradient(135deg,#2563eb,#1d4ed8);color:white;padding:9px 13px;border-radius:12px}.secondary{background:rgba(148,163,184,.12);padding:9px 13px;border-radius:12px}.danger{background:#fee2e2;color:#b91c1c;padding:8px 10px;border-radius:10px}.success{color:var(--green)}.warning{color:var(--orange)}.negative{color:var(--red)}
-.chart{height:230px;position:relative}.chart canvas{width:100%;height:100%}.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:11px;color:var(--muted);margin-top:5px}.legend i{display:inline-block;width:8px;height:8px;border-radius:50%;background:currentColor;margin-left:4px}
-.list{display:grid;gap:2px}.item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.item:last-child{border-bottom:0}.item-main{display:flex;gap:10px;align-items:center;min-width:0}.dot{width:10px;height:10px;border-radius:50%;flex:0 0 auto}.item b{font-size:12px}.item small{display:block;color:var(--muted);font-size:10px;margin-top:4px}.money{font-weight:bold;font-size:12px;white-space:nowrap}.pill{font-size:9px;padding:4px 7px;border-radius:999px;background:rgba(37,99,235,.1);color:var(--primary)}.empty{text-align:center;color:var(--muted);padding:25px 10px;font-size:12px}
-.progress{height:9px;background:rgba(148,163,184,.18);border-radius:99px;overflow:hidden}.progress>i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#2563eb,#60a5fa)}.goal{padding:12px;border:1px solid var(--line);border-radius:16px;margin-bottom:9px}.goal-top{display:flex;justify-content:space-between;gap:10px}.goal strong{font-size:12px}.goal .nums{font-size:10px;color:var(--muted);margin:7px 0}
-.form{display:grid;gap:10px}.form label{display:block;font-size:10px;color:var(--muted);margin-bottom:5px}.form input,.form select,.form textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:12px;outline:0;background:rgba(255,255,255,.65);color:var(--text)}body.dark .form input,body.dark .form select,body.dark .form textarea{background:rgba(2,6,23,.35)}.form textarea{min-height:70px;resize:vertical}.form input:focus,.form select:focus,.form textarea:focus{border-color:rgba(37,99,235,.55)}.row{display:grid;grid-template-columns:1fr 1fr;gap:9px}.three{grid-template-columns:repeat(3,1fr)}
-.filters{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:8px;margin-bottom:12px}.filters input,.filters select{padding:10px;border:1px solid var(--line);border-radius:11px;background:var(--card);color:var(--text);outline:0}
-.datefield{display:grid;grid-template-columns:1fr 42px;gap:6px}.datefield button{border:1px solid var(--line);border-radius:12px;background:rgba(37,99,235,.1);color:var(--primary)}.jpicker{position:fixed;z-index:120;background:var(--bg);border:1px solid var(--line);border-radius:18px;box-shadow:0 25px 70px rgba(0,0,0,.28);padding:12px;width:min(340px,calc(100vw - 24px))}.jpicker-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}.jpicker-head button{width:34px;height:34px;border-radius:10px;background:var(--card)}.jpicker-title{font-weight:bold;font-size:13px}.jpicker-week,.jpicker-days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}.jpicker-week span{font-size:9px;color:var(--muted);text-align:center;padding:4px}.jday{padding:8px 2px;border-radius:9px;background:transparent}.jday:hover,.jday.active{background:var(--primary);color:#fff}.jday.empty{pointer-events:none}.loan-card{border:1px solid var(--line);border-radius:17px;padding:14px;margin-bottom:9px}.loan-top{display:flex;justify-content:space-between;gap:10px}.loan-bank{font-size:10px;color:var(--muted);margin-top:4px}.loan-meta{display:flex;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:10px;margin:8px 0}.bank-select{font-size:11px}.debt-card{border:1px solid var(--line);border-radius:16px;padding:13px;margin-bottom:8px}.debt-head{display:flex;justify-content:space-between;gap:10px}.debt-head strong{font-size:13px}.debt-meta{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:10px;margin:7px 0}.actions{display:flex;gap:6px;flex-wrap:wrap}.actions button{padding:7px 9px;border-radius:9px;background:rgba(148,163,184,.12);font-size:10px}
-.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;font-size:11px}.table th,.table td{text-align:right;padding:10px;border-bottom:1px solid var(--line);white-space:nowrap}.table th{color:var(--muted);font-weight:normal}
-.alert{padding:11px 12px;border-radius:13px;margin-bottom:8px;font-size:11px;background:rgba(234,88,12,.09);border:1px solid rgba(234,88,12,.16)}.alert.red{background:rgba(220,38,38,.08);border-color:rgba(220,38,38,.15)}.alert.green{background:rgba(22,163,74,.08);border-color:rgba(22,163,74,.15)}
-.modal{position:fixed;inset:0;background:rgba(2,6,23,.62);display:flex;align-items:flex-end;justify-content:center;padding:12px;z-index:50;backdrop-filter:blur(5px)}.modal.hidden{display:none}.sheet{width:min(560px,100%);max-height:92vh;overflow:auto;background:var(--bg);border:1px solid var(--line);border-radius:25px;padding:17px;box-shadow:0 30px 80px rgba(0,0,0,.3)}.sheet-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.sheet-head h3{margin:0;font-size:17px}.close{width:35px;height:35px;border-radius:11px;background:rgba(148,163,184,.12)}
-.fab{position:fixed;left:18px;bottom:20px;width:58px;height:58px;border-radius:19px;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;font-size:28px;box-shadow:0 16px 35px rgba(37,99,235,.35);z-index:30}.fab-menu{position:fixed;left:18px;bottom:87px;display:grid;gap:7px;z-index:29}.fab-menu.hidden{display:none}.fab-menu button{background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);padding:10px 12px;border-radius:12px;font-size:11px}
-.view.hidden{display:none!important}.settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.setting-btn{width:100%;padding:12px;border-radius:12px;background:var(--card2);border:1px solid var(--line);text-align:right}.toast{position:fixed;right:50%;transform:translateX(50%) translateY(20px);bottom:22px;background:#0f172a;color:white;padding:11px 16px;border-radius:12px;font-size:11px;opacity:0;pointer-events:none;transition:.25s;z-index:100}.toast.show{opacity:1;transform:translateX(50%) translateY(0)}
-.lock{position:fixed;inset:0;background:linear-gradient(145deg,#07101f,#142f69);z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;color:white}.lock.hidden{display:none}.lock-box{width:min(390px,100%);text-align:center}.lock-box .logo{margin:auto}.pin-dots{font-size:25px;letter-spacing:8px;margin:20px}.pin-input{width:100%;padding:15px;border:1px solid rgba(255,255,255,.2);border-radius:14px;background:rgba(255,255,255,.1);color:white;text-align:center;font-size:22px;outline:0}.note{font-size:10px;color:var(--muted);line-height:1.8}
-@media(max-width:900px){.stats{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:1fr}}
-@media(max-width:600px){.app{padding:13px 11px 100px}.brand h1{font-size:17px}.logo{width:43px;height:43px}.stats{grid-template-columns:repeat(2,1fr)}.stat:last-child{grid-column:1/-1}.filters{grid-template-columns:1fr 1fr}.filters input{grid-column:1/-1}.row,.three,.settings-grid{grid-template-columns:1fr}.hero h2{font-size:24px}.panel{padding:14px}.nav button{font-size:10px}.chart{height:210px}}
 
-/* Premium banking-style navigation */
-.nav{position:fixed;z-index:40;left:50%;bottom:12px;transform:translateX(-50%);width:min(680px,calc(100vw - 24px));display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin:0;padding:7px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.9);box-shadow:0 18px 50px rgba(15,23,42,.16);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
-body.dark .nav{background:rgba(10,18,32,.92);box-shadow:0 18px 50px rgba(0,0,0,.38)}
-.nav button{min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:7px 4px;border:0;background:transparent;color:var(--muted);border-radius:15px;font-size:10px;font-weight:500;transition:.18s}
-.nav button:hover{background:rgba(37,99,235,.06)}
-.nav button.active{color:var(--primary);background:rgba(37,99,235,.10);border:0;font-weight:700}
-.nav-ico{width:25px;height:25px;display:grid;place-items:center;font-size:19px;line-height:1;font-weight:700}
-.nav button.active .nav-ico{background:rgba(37,99,235,.13);border-radius:9px}
-.more-nav{position:fixed;z-index:39;left:50%;bottom:88px;transform:translateX(-50%);width:min(620px,calc(100vw - 24px));display:block;margin:0;padding:13px;border-radius:20px;background:var(--bg);border:1px solid var(--line);box-shadow:0 24px 70px rgba(15,23,42,.22);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
-.more-nav.hidden{display:none}
-.more-title{display:flex;align-items:center;justify-content:space-between;margin:0 2px 10px;padding:2px 3px 8px;border-bottom:1px solid var(--line);font-size:13px}
-.more-title button{width:30px;height:30px;border-radius:9px;background:rgba(148,163,184,.12);font-size:20px}
-.more-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-.more-grid button{display:grid;grid-template-columns:34px 1fr;grid-template-rows:auto auto;column-gap:8px;align-items:center;text-align:right;padding:10px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--text)}
-.more-grid button span{grid-row:1/3;width:34px;height:34px;display:grid;place-items:center;border-radius:11px;background:rgba(37,99,235,.10);font-size:17px}
-.more-grid button b{font-size:11px}
-.more-grid button small{font-size:9px;color:var(--muted);margin-top:2px}
-.more-nav-btn{margin-right:0!important}
-.app{padding-bottom:120px}
-@media(max-width:600px){.nav{bottom:9px;width:calc(100vw - 18px);border-radius:18px}.nav button{font-size:9px;padding:6px 2px}.nav-ico{font-size:18px;width:24px;height:24px}.more-nav{bottom:82px;width:calc(100vw - 18px);border-radius:18px}.more-grid{gap:7px}.more-grid button{padding:9px}.app{padding-bottom:105px}}
-
-.market-card{margin:0 0 14px;padding:15px}.market-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.market-item{padding:12px;border:1px solid var(--line);border-radius:16px;background:var(--card2)}.market-label{display:flex;align-items:center;gap:7px;color:var(--muted);font-size:11px}.market-icon{width:27px;height:27px;border-radius:9px;display:grid;place-items:center;background:rgba(37,99,235,.1);color:var(--primary);font-weight:800}.market-icon.gold{color:#b7791f;background:rgba(234,179,8,.12)}.market-item b{display:block;font-size:16px;margin:8px 0 4px}.market-item small{font-size:9px;color:var(--green)}.market-item small.down{color:var(--red)}.market-foot{display:flex;justify-content:space-between;gap:10px;margin-top:8px;color:var(--muted);font-size:9px}.market-refresh{width:34px;height:34px;border-radius:11px;background:rgba(37,99,235,.09);color:var(--primary);font-size:20px}.market-refresh:active{transform:rotate(90deg)}
-@media(max-width:600px){.market-grid{gap:7px}.market-item{padding:10px}.market-item b{font-size:14px}}
-</style>
-</head>
-<body>
-<div id="lockScreen" class="lock hidden">
- <div class="lock-box"><img class="logo" src="icon.svg"><h2>مدیریت مالی</h2><p>برنامه قفل است؛ PIN را وارد کنید.</p><input id="unlockPin" class="pin-input" type="password" inputmode="numeric" maxlength="8" placeholder="••••" onkeydown="if(event.key==='Enter')unlock()"><button class="primary" style="width:100%;margin-top:10px" onclick="unlock()">باز کردن</button><p id="lockMsg" class="note"></p></div>
-</div>
-<div class="app" id="app">
-<header><div class="brand"><img class="logo" src="icon.svg"><div><h1>حسابینو</h1><p>ساده، خصوصی و آفلاین</p></div></div><div class="head-actions"><button class="iconbtn" onclick="togglePrivacy()" title="مخفی کردن مبالغ">👁️</button><button class="iconbtn" onclick="toggleDark()" title="حالت تاریک">🌙</button><button class="iconbtn" onclick="openSettings()" title="تنظیمات">⚙️</button></div></header>
-
-<div class="accountbar" id="accountBar">
- <button class="active" data-account="personal" onclick="switchAccount('personal')">👤 حساب شخصی</button>
- <button data-account="shop" onclick="switchAccount('shop')">🔧 حساب مغازه</button>
-</div>
-
-<section class="hero">
- <div class="hero-top"><div><small>موجودی قابل خرج — <span id="accountName">حساب شخصی</span></small><h2 id="spendable">۰ تومان</h2><small>درآمد − هزینه − پس‌انداز</small></div><div class="month" id="monthName">ماه جاری</div></div>
- <div class="hero-bottom"><div class="mini">درآمد ماه<b id="heroIncome">۰</b></div><div class="mini">هزینه ماه<b id="heroExpense">۰</b></div><div class="mini">پس‌انداز<b id="heroSaving">۰</b></div><div class="mini">طلب مشتریان<b id="heroDebt">۰</b></div><div class="mini">وام باقی‌مانده<b id="heroLoanDebt">۰</b></div></div>
-</section>
-
-<div class="stats">
- <div class="stat"><div class="ico">📈</div><b id="totalIncome">۰</b><span>کل درآمد</span></div>
- <div class="stat"><div class="ico">📉</div><b id="totalExpense">۰</b><span>کل هزینه</span></div>
- <div class="stat"><div class="ico">💰</div><b id="totalSaving">۰</b><span>پس‌انداز</span></div>
- <div class="stat"><div class="ico">👥</div><b id="totalDebt">۰</b><span>طلب از مشتریان</span></div>
- <div class="stat"><div class="ico">🎯</div><b id="goalProgress">۰٪</b><span>پیشرفت اهداف</span></div>
-</div>
-
-<div class="market-card panel">
- <div class="panel-title"><div><h3>بازار امروز</h3><span class="muted">نرخ خودکار دلار و طلای ۱۸ عیار</span></div><span class="market-live">● زنده</span></div>
- <div class="market-grid market-live-grid">
-  <div class="market-item live-rate-card"><div class="market-label"><span class="market-icon">$</span><span>دلار آزاد</span></div><tgju type="market-data" items="price_dollar_rl" columns="dot,diff,time" token="webservice"></tgju></div>
-  <div class="market-item live-rate-card"><div class="market-label"><span class="market-icon gold">◆</span><span>طلای ۱۸ عیار</span></div><tgju type="market-data" items="geram18" columns="dot,diff,time" token="webservice"></tgju></div>
- </div>
- <div class="market-foot"><span>منبع: شبکه اطلاع‌رسانی طلا و ارز</span><span>تومان</span></div>
-</div>
-
-<nav class="nav" id="nav" aria-label="منوی اصلی">
- <button class="active" data-view="dashboard" onclick="switchAccount('personal');showView('dashboard',this)"><span class="nav-ico">⌂</span><span>خانه</span></button>
- <button data-view="transactions" onclick="showView('transactions',this)"><span class="nav-ico">↕</span><span>تراکنش‌ها</span></button>
- <button data-view="shop" onclick="openShopView(this)"><span class="nav-ico">▣</span><span>مغازه</span></button>
- <button data-view="reports" onclick="showView('reports',this)"><span class="nav-ico">▥</span><span>گزارش‌ها</span></button>
- <button class="more-nav-btn" onclick="toggleMoreNav(event)"><span class="nav-ico">•••</span><span>بیشتر</span></button>
-</nav>
-<div id="moreNav" class="more-nav hidden">
- <div class="more-title"><b>امکانات بیشتر</b><button onclick="closeMoreNav()" aria-label="بستن">×</button></div>
- <div class="more-grid">
-  <button onclick="showView('debts',this);closeMoreNav()"><span>👥</span><b>بدهکاران</b><small>مدیریت مطالبات</small></button>
-  <button onclick="showView('loans',this);closeMoreNav()"><span>🏦</span><b>اقساط و وام</b><small>سررسید و پرداخت</small></button>
-  <button onclick="showView('savings',this);closeMoreNav()"><span>💰</span><b>پس‌انداز و اهداف</b><small>برنامه مالی</small></button>
-  <button onclick="showView('budgets',this);closeMoreNav()"><span>📌</span><b>بودجه‌بندی</b><small>کنترل هزینه</small></button>
- </div>
-</div>
-
-<main>
-<section id="dashboard" class="view">
- <div class="grid">
-  <div>
-   <div class="panel"><div class="panel-title"><h3>روند مالی ۶ ماه اخیر</h3><span class="muted">درآمد / هزینه / پس‌انداز</span></div><div class="chart"><canvas id="mainChart"></canvas></div><div class="legend"><span><i style="color:#2563eb"></i>درآمد</span><span><i style="color:#dc2626"></i>هزینه</span><span><i style="color:#16a34a"></i>پس‌انداز</span></div></div>
-   <div class="panel"><div class="panel-title"><h3>آخرین تراکنش‌ها</h3><button class="add" onclick="openTransaction()">+ ثبت</button></div><div id="recentTransactions" class="list"></div></div>
-  </div>
-  <div>
-   <div class="panel"><div class="panel-title"><h3>هشدارهای مهم</h3></div><div id="alerts"></div></div>
-   <div class="panel"><div class="panel-title"><h3>بودجه‌های فعال</h3><button class="add" onclick="openBudget()">+ بودجه</button></div><div id="budgetMini"></div></div>
-   <div class="panel"><div class="panel-title"><h3>اهداف پس‌انداز</h3><button class="add" onclick="openGoal()">+ هدف</button></div><div id="goalsMini"></div></div>
-  </div>
- </div>
-</section>
-
-<section id="transactions" class="view hidden">
- <div class="panel"><div class="panel-title"><h3>مدیریت تراکنش‌ها</h3><button class="add" onclick="openTransaction()">+ تراکنش جدید</button></div>
-  <div class="filters"><input id="txSearch" placeholder="جستجو در توضیحات و دسته‌بندی..." oninput="renderTransactions()"><select id="txType" onchange="renderTransactions()"><option value="">همه انواع</option><option value="income">درآمد</option><option value="expense">هزینه</option></select><select id="txCategory" onchange="renderTransactions()"><option value="">همه دسته‌ها</option></select><select id="txMonth" onchange="renderTransactions()"><option value="">همه ماه‌ها</option></select></div>
-  <div id="transactionsList"></div>
- </div>
-</section>
-
-<section id="debts" class="view hidden">
- <div class="panel"><div class="panel-title"><div><h3>بدهکاران مشتریان</h3><span class="muted">این بخش مستقل از تراکنش‌های حساب است.</span></div><button class="add" onclick="openDebt()">+ مشتری بدهکار</button></div>
-  <div class="filters"><input id="debtSearch" placeholder="نام یا شماره تماس..." oninput="renderDebts()"><select id="debtFilter" onchange="renderDebts()"><option value="">همه</option><option value="open">دارای مانده</option><option value="overdue">عقب‌افتاده</option><option value="paid">تسویه‌شده</option></select></div>
-  <div id="debtsList"></div>
- </div>
-</section>
-
-<section id="loans" class="view hidden">
- <div class="panel"><div class="panel-title"><div><h3>🏦 اقساط و وام بانکی</h3><span class="muted">برای هر حساب جداگانه؛ مناسب وام و تسهیلات تمام بانک‌ها</span></div><button class="add" onclick="openLoan()">+ وام / قسط</button></div>
-  <div class="filters"><input id="loanSearch" placeholder="جستجو: بانک، عنوان وام..." oninput="renderLoans()"><select id="loanFilter" onchange="renderLoans()"><option value="">همه</option><option value="open">دارای مانده</option><option value="overdue">قسط عقب‌افتاده</option><option value="done">تسویه‌شده</option></select></div>
-  <div id="loansSummary"></div><div id="loansList"></div>
- </div>
-</section>
-
-<section id="savings" class="view hidden">
- <div class="grid"><div class="panel"><div class="panel-title"><h3>اهداف پس‌انداز</h3><button class="add" onclick="openGoal()">+ هدف جدید</button></div><div id="goalsList"></div></div>
- <div><div class="panel"><div class="panel-title"><h3>ثبت پس‌انداز</h3><button class="add" onclick="openSaving()">+ ثبت</button></div><p class="muted">پس‌انداز از موجودی قابل خرج کم می‌شود.</p><div id="savingSummary"></div></div>
- <div class="panel"><div class="panel-title"><h3>تاریخچه پس‌انداز</h3></div><div id="savingHistory"></div></div></div></div>
-</section>
-
-<section id="budgets" class="view hidden">
- <div class="panel"><div class="panel-title"><div><h3>بودجه‌بندی ماهانه</h3><span class="muted">برای هر حساب جداگانه</span></div><button class="add" onclick="openBudget()">+ بودجه</button></div><div id="budgetsList"></div></div>
-</section>
-
-<section id="reports" class="view hidden">
- <div class="panel"><div class="panel-title"><h3>گزارش مالی</h3><div class="actions"><button onclick="setReport('day')">روزانه</button><button onclick="setReport('month')">ماهانه</button><button onclick="setReport('year')">سالانه</button></div></div><div id="reportSummary"></div><div class="chart" style="height:260px"><canvas id="reportChart"></canvas></div></div>
- <div class="panel"><div class="panel-title"><h3>ریز گزارش</h3><button class="secondary" onclick="exportCSV()">خروجی CSV</button></div><div id="reportTable"></div></div>
-</section>
-</main>
-</div>
-
-<button class="fab" onclick="toggleFab()">+</button>
-<div id="fabMenu" class="fab-menu hidden"><button onclick="openTransaction('income');toggleFab()">📈 درآمد</button><button onclick="openTransaction('expense');toggleFab()">📉 هزینه</button><button onclick="openSaving();toggleFab()">💰 پس‌انداز</button><button onclick="openDebt();toggleFab()">👥 بدهکار</button><button onclick="openLoan();toggleFab()">🏦 قسط بانکی</button></div>
-
-<div id="modal" class="modal hidden"><div class="sheet"><div class="sheet-head"><h3 id="modalTitle">ثبت</h3><button class="close" onclick="closeModal()">×</button></div><div id="modalBody"></div></div></div>
-<div id="settingsModal" class="modal hidden"><div class="sheet"><div class="sheet-head"><h3>تنظیمات و پشتیبان‌گیری</h3><button class="close" onclick="closeSettings()">×</button></div>
- <div class="panel" style="margin:0 0 10px"><h3 style="margin-top:0">امنیت</h3><div class="settings-grid"><button class="setting-btn" onclick="setPin()">🔐 تنظیم / تغییر PIN</button><button class="setting-btn" onclick="lockApp()">🔒 قفل برنامه</button><button class="setting-btn" onclick="togglePrivacy()">👁️ مخفی‌کردن مبالغ</button><button class="setting-btn" onclick="toggleDark()">🌙 حالت تاریک</button></div></div>
- <div class="panel" style="margin:0 0 10px"><h3 style="margin-top:0">پشتیبان‌گیری</h3><div class="settings-grid"><button class="setting-btn" onclick="exportJSON()">⬇️ Export JSON</button><button class="setting-btn" onclick="importJSON()">⬆️ Import JSON</button><button class="setting-btn" onclick="exportCSV()">📄 Export CSV</button><button class="setting-btn" onclick="exportAll()">📦 خروجی کامل</button></div><p class="note">فایل JSON شامل اطلاعات هر دو حساب است و می‌توانید آن را به گوشی دیگر منتقل و Import کنید. هیچ سرور یا API خارجی استفاده نمی‌شود.</p></div>
- <div class="panel" style="margin:0 0 10px"><h3 style="margin-top:0">ظاهر</h3><label class="muted">نام حساب‌ها در برنامه</label><div class="form"><input id="personalName" placeholder="حساب شخصی"><input id="shopName" placeholder="حساب مغازه تعمیرات موبایل"><button class="primary" onclick="saveNames()">ذخیره</button></div></div>
- <div class="panel" style="margin:0 0 10px"><h3 style="margin-top:0">نرخ دلار و طلا</h3><p class="muted">نرخ دلار آزاد و طلای ۱۸ عیار به‌صورت خودکار نمایش داده می‌شود و نیازی به وارد کردن کلید API نیست.</p><p class="note">در صورت قطع موقت منبع، ممکن است نرخ‌ها با تأخیر نمایش داده شوند.</p></div>
- <button class="danger" style="width:100%" onclick="clearAll()">⚠️ حذف تمام اطلاعات این دستگاه</button>
-</div></div>
-<div id="toast" class="toast"></div>
-
-<script>
 const KEY='financial-manager-pro-v1';
 const LEGACY='my_finance_manager_v1';
 const DEFAULT_CATS=['مواد غذایی','قبض و اینترنت','حمل‌ونقل','خرید','حقوق','تعمیرات','قطعات موبایل','اجاره','فروش','خدمات','سرمایه‌گذاری','قسط بانکی','سایر'];
@@ -211,7 +30,7 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&
 function load(){
  let raw=localStorage.getItem(KEY);
  if(raw){try{return JSON.parse(raw)}catch{}}
- let base={version:1,settings:{personalName:'حساب شخصی',shopName:'حساب مغازه تعمیرات موبایل',dark:false,pin:''},accounts:{personal:{transactions:[],debts:[],savings:[],goals:[],budgets:[],loans:[]},shop:{transactions:[],debts:[],savings:[],goals:[],budgets:[],loans:[]}}};
+ let base={version:1,settings:{personalName:'حساب شخصی',shopName:'حساب مغازه تعمیرات موبایل',dark:false,pin:'',ratesApiKey:''},accounts:{personal:{transactions:[],debts:[],savings:[],goals:[],budgets:[],loans:[]},shop:{transactions:[],debts:[],savings:[],goals:[],budgets:[],loans:[]}}};
  let legacy=localStorage.getItem(LEGACY);
  if(legacy)try{
   let l=JSON.parse(legacy), a=base.accounts.personal;
@@ -222,7 +41,7 @@ function load(){
  return base;
 }
 let data=load();
-function normalizeData(){Object.values(data.accounts).forEach(a=>{a.transactions=a.transactions||[];a.debts=a.debts||[];a.savings=a.savings||[];a.goals=a.goals||[];a.budgets=a.budgets||[];a.loans=a.loans||[];a.loans.forEach(l=>{l.payments=l.payments||[];l.totalPayable=num(l.totalPayable||l.total||0);l.installment=num(l.installment||0);l.count=num(l.count||0);l.due=l.due||today();});});data.settings=data.settings||{personalName:'حساب شخصی',shopName:'حساب مغازه تعمیرات موبایل',dark:false,pin:''};}
+function normalizeData(){Object.values(data.accounts).forEach(a=>{a.transactions=a.transactions||[];a.debts=a.debts||[];a.savings=a.savings||[];a.goals=a.goals||[];a.budgets=a.budgets||[];a.loans=a.loans||[];a.loans.forEach(l=>{l.payments=l.payments||[];l.totalPayable=num(l.totalPayable||l.total||0);l.installment=num(l.installment||0);l.count=num(l.count||0);l.due=l.due||today();});});data.settings=data.settings||{personalName:'حساب شخصی',shopName:'حساب مغازه تعمیرات موبایل',dark:false,pin:'',ratesApiKey:''};data.settings.ratesApiKey=data.settings.ratesApiKey||'';}
 normalizeData();
 function save(){normalizeData();localStorage.setItem(KEY,JSON.stringify(data));renderAll()}
 function active(){return data.accounts[currentAccount]}
@@ -242,7 +61,7 @@ function totals(a=active(), month=null){
  let debt=(a.debts||[]).reduce((s,x)=>s+Math.max(0,num(x.total)-num(x.paid)),0);
  return {income,expense,saving,balance:income-expense-saving,debt};
 }
-function renderAll(){renderDashboard();renderTransactions();renderDebts();renderLoans();renderSavings();renderBudgets();renderReports();$('monthName').textContent=monthName();$('accountName').textContent=currentAccount==='shop'?data.settings.shopName:data.settings.personalName}
+function renderAll(){renderDashboard();renderTransactions();renderDebts();renderLoans();renderSavings();renderBudgets();renderReports();$('monthName').textContent=monthName();$('accountName').textContent=currentAccount==='shop'?data.settings.shopName:data.settings.personalName;if(typeof refreshRates==='function')refreshRates(false)}
 function renderDashboard(){
  let a=active(), t=totals(a), m=totals(a,currentMonth());
  $('spendable').textContent=money(t.balance);$('heroIncome').textContent=money(m.income);$('heroExpense').textContent=money(m.expense);$('heroSaving').textContent=money(t.saving);$('heroDebt').textContent=money(t.debt);$('heroLoanDebt').textContent=money((a.loans||[]).reduce((s,l)=>s+loanRemaining(l),0));
@@ -316,6 +135,8 @@ function toggleDark(){data.settings.dark=!data.settings.dark;document.body.class
 function openSettings(){ $('personalName').value=data.settings.personalName;$('shopName').value=data.settings.shopName;$('settingsModal').classList.remove('hidden')}
 function closeSettings(){$('settingsModal').classList.add('hidden')}
 function saveNames(){data.settings.personalName=$('personalName').value.trim()||'حساب شخصی';data.settings.shopName=$('shopName').value.trim()||'حساب مغازه تعمیرات موبایل';save();closeSettings();toast('نام حساب‌ها ذخیره شد')}
+function saveRatesKey(){toast('نرخ دلار و طلا به‌صورت خودکار دریافت می‌شود')}
+function formatRate(v){return fa(Math.round(Number(v)||0))}
 function setPin(){let p=prompt('یک PIN چهار تا هشت رقمی وارد کنید:','');if(p===null)return;if(!/^\d{4,8}$/.test(p)){alert('PIN باید ۴ تا ۸ رقم باشد.');return}data.settings.pin=p;save();toast('PIN تنظیم شد')}
 function lockApp(){if(!data.settings.pin){alert('ابتدا برای برنامه PIN تنظیم کنید.');return}$('unlockPin').value='';$('lockScreen').classList.remove('hidden');closeSettings()}
 function unlock(){let p=$('unlockPin').value;if(p===data.settings.pin){$('lockScreen').classList.add('hidden');$('lockMsg').textContent=''}else $('lockMsg').textContent='PIN اشتباه است.'}
@@ -328,11 +149,3 @@ function init(){
  if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});
 }
 init();
-</script>
-
-<style>
-.market-live{font-size:11px;color:#16a34a;font-weight:800;white-space:nowrap}.market-live-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.live-rate-card tgju{display:block;min-height:38px}.live-rate-card tgju table{width:100%!important;background:transparent!important;border:0!important;font-family:inherit!important}.live-rate-card tgju th,.live-rate-card tgju td{padding:3px!important;border:0!important;background:transparent!important;font-family:inherit!important;font-size:11px!important}.live-rate-card tgju tr{background:transparent!important}.live-rate-card tgju a{font-family:inherit!important}.live-rate-card tgju [class*=price]{font-weight:900!important;font-size:17px!important}@media(max-width:560px){.market-live-grid{grid-template-columns:1fr 1fr}.live-rate-card{padding:10px 8px!important}.live-rate-card tgju th,.live-rate-card tgju td{font-size:9px!important}.live-rate-card tgju [class*=price]{font-size:14px!important}}
-</style>
-<script src="https://api.tgju.org/v1/widget/v2" defer></script>
-</body>
-</html>
